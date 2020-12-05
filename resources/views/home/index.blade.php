@@ -23,15 +23,7 @@
         <div class="loader"><img src="{{ asset('images/loading.gif') }}" alt="" /></div>
     </div>
     <!-- end loader -->
-    <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="searvices.html">Searvices</a>
-        <a href="testimonial.html">Testimonial</a>
-        <a href="works.html">Works</a>
-        <a href="contact.html">Contact</a>
-    </div>
+    @include('shared._right-menu');
     <!-- header -->
     @include('shared._header');
     <!-- end header -->
@@ -57,7 +49,7 @@
                                             <div class="row d_flex">
                                                 <div class="col-md-6">
                                                     <div class="con_img">
-                                                        <figure><img class="img_responsive" src="{{ $item->get_enclosure()->get_link() }}" alt="{{ $item->get_title() }}" /></figure>
+                                                        <figure><img class="headline_img" src="{{ $item->get_enclosure()->get_link() }}" alt="{{ $item->get_title() }}" /></figure>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

@@ -214,6 +214,7 @@ button {
      display: flex;
      align-items: center;
      flex-wrap: wrap;
+     justify-content: space-between;
 }
 
 .container {
@@ -259,6 +260,8 @@ header {
      padding: 22px 30px;
      height: 96px;
      z-index: 9;
+     position: fixed;
+     top: 0;
 }
 
 .logo a {
@@ -441,6 +444,7 @@ ul.email li i {
 
 .banner_main .bluid .read_more {
      margin-right: 15px;
+     margin-top: 35px;
 }
 
 
@@ -571,6 +575,13 @@ ul.email li i {
      color: #fff;
      transition: ease-in all 0.5s;
      border: #face34 solid 2px;
+}
+
+.headline_img {
+    width: 650px;
+    height: 365px;
+    border: 2px solid #fff;
+    /*box-shadow: 0 4px 24px 0 rgba(255, 255, 255, 0.5);*/
 }
 
 .img_responsive {
