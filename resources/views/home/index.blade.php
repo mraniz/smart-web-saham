@@ -12,13 +12,9 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-    {{--<link rel="stylesheet" href="css/bootstrap.min.css">--}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
-    {{--<link rel="stylesheet" href="css/style.css">--}}
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
-    {{--<link rel="stylesheet" href="css/responsive.css">--}}
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" >
-    <!-- awesome fontfamily -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="main-layout">
@@ -51,69 +47,33 @@
                             <li data-target="#myCarousel" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="container-fluid">
-                                    <div class="carousel-caption relative">
-                                        <div class="row d_flex">
-                                            <div class="col-md-6">
-                                                <div class="con_img">
-                                                    <figure><img class="img_responsive" src="images/top_img.png" alt="#" /></figure>
+                            @php
+                                $index = 1;
+                            @endphp
+                            @foreach ($items as $item)
+                                <div class="carousel-item {{ $index == 1 ? 'active' : '' }}">
+                                    <div class="container-fluid">
+                                        <div class="carousel-caption relative">
+                                            <div class="row d_flex">
+                                                <div class="col-md-6">
+                                                    <div class="con_img">
+                                                        <figure><img class="img_responsive" src="{{ $item->get_enclosure()->get_link() }}" alt="{{ $item->get_title() }}" /></figure>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="bluid">
-                                                    <h1>Progress<br> Your Bitcoin Money Success</h1>
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                                    </p>
-                                                    <a class="read_more" href="Javascript:void(0)">Read More </a><a class="read_more" href="Javascript:void(0)">Get A Quote </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container-fluid">
-                                    <div class="carousel-caption relative">
-                                        <div class="row d_flex">
-                                            <div class="col-md-6">
-                                                <div class="con_img">
-                                                    <figure><img class="img_responsive" src="images/top_img.png" alt="#" /></figure>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="bluid">
-                                                    <h1>Progress <br> Your Bitcoin Money Success</h1>
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                                    </p>
-                                                    <a class="read_more" href="Javascript:void(0)">Read More </a><a class="read_more" href="Javascript:void(0)">Get A Quote </a>
+                                                <div class="col-md-6">
+                                                    <div class="bluid">
+                                                        <h2>{{ $item->get_title() }}</h2>
+                                                        <a class="read_more" href="{{ $item->get_link() }}">Read More</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container-fluid">
-                                    <div class="carousel-caption relative">
-                                        <div class="row d_flex">
-                                            <div class="col-md-6">
-                                                <div class="con_img">
-                                                    <figure><img class="img_responsive" src="images/top_img.png" alt="#" /></figure>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="bluid">
-                                                    <h1>Progress <br> Your Bitcoin Money Success</h1>
-                                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                                    </p>
-                                                    <a class="read_more" href="Javascript:void(0)">Read More </a><a class="read_more" href="Javascript:void(0)">Get A Quote </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                @php
+                                    $index = $index + 1;
+                                @endphp
+                            @endforeach
                         </div>
                         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                             <i class="fa fa-angle-left" aria-hidden="true"></i>
