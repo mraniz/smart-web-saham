@@ -81,40 +81,40 @@
         </div>
     </div>
     <!-- end slider section -->
-    <!-- wallet -->
-    <div class="wallet">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div id="wa_hover" class="wallet_box text_align_center">
-                        <i><img src="images/wa1.svg" alt="#"/></i>
-                        <h3>ONLINE WALLET</h3>
-                        <p>It is a long established fact that a reader will be distracted by </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div id="wa_hover" class="wallet_box text_align_center">
-                        <i><img src="images/wa2.svg" alt="#"/></i>
-                        <h3>SEND COINS</h3>
-                        <p>It is a long established fact that a reader will be distracted by </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div id="wa_hover" class="wallet_box text_align_center">
-                        <i><img src="images/wa3.svg" alt="#"/></i>
-                        <h3>MOBILE APP </h3>
-                        <p>It is a long established fact that a reader will be distracted by </p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div id="wa_hover" class="wallet_box text_align_center">
-                        <i><img src="images/wa4.svg" alt="#"/></i>
-                        <h3>COIN MINING</h3>
-                        <p>It is a long established fact that a reader will be distracted by </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://id.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Kutipan</span></a> oleh TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+        {
+          "symbols": [
+            {
+              "proName": "FOREXCOM:SPXUSD",
+              "title": "S&P 500"
+            },
+            {
+              "proName": "FOREXCOM:NSXUSD",
+              "title": "Nasdaq 100"
+            },
+            {
+              "proName": "FX_IDC:EURUSD",
+              "title": "EUR/USD"
+            },
+            {
+              "proName": "BITSTAMP:BTCUSD",
+              "title": "BTC/USD"
+            },
+            {
+              "proName": "BITSTAMP:ETHUSD",
+              "title": "ETH/USD"
+            }
+          ],
+          "colorTheme": "light",
+          "isTransparent": false,
+          "showSymbolLogo": true,
+          "locale": "id"
+        }
+      </script>
     </div>
     <!-- end wallet -->
     <!-- about -->
@@ -442,5 +442,21 @@
       <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
       <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
       <script src="{{ asset('js/custom.js') }}"></script>
+      <!-- Javascript for update widget DOM -->
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                updateStyleWidget();
+            }, 2000);
+        }
+
+        function updateStyleWidget() {
+            document.querySelector('.tradingview-widget-container').style.height = '220px';
+            document.querySelector('.tradingview-widget-container > iframe').style.height = 'unset';
+            {{--iframe selector--}}
+            {{--document.querySelector('#widget-ticker-container').style.height = '220px';--}}
+            {{--document.querySelector('.tv-ticker-item-change__head').style.height = '100px';--}}
+        }
+    </script>
    </body>
 </html>
